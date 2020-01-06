@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang = eng>
+<head>
+    <Title>Quiz In Javascript By Jared</Title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<style>
+    .starter{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    }
+    #roman{
+        background-color: red;
+        color: white;
+    }
+    #hellenic{
+        background-color: royalblue;
+        color: white;
+    }
+    #magic{
+        background-color: purple;
+        color: white;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+<div class="row">
+    <div class="col-lg-8 col-sm-12 mx-auto">
+    <div class="starter">
+        <div id="buttons">
+    <button id="roman" onclick="romestart()">Click here to the quiz on Rome!</button>
+    <br />
+    <button id="hellenic" onclick="hellenicstart()">Click here to start the quiz on Hellenism!</button>
+    <br />
+    <button id="magic" onclick="magic()">Click here to start the quiz on the Winds of Aethyr!</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-sm-12 mx-auto">
+            <div id="text">
+            </div>
+            </div></div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+var rquest = [
+  {
+    title: "Who was the first king of Rome? <br />",
+    choices: ["Romulous", "Remulous", "Numa", "Julius Cesear", "Tarquin"],
+    answer: "Romulous"
+  },
+  {
+    title: "Skippio Africanus famously defeated what historical figure? <br />",
+    choices: ["Hannibal<br />", "Stilico<br />", "King Leo<br />", "Pompeus Maximus<br />"],
+    answer: "Hannibal"
+  },
+  {
+    title: "What faction what the most famous of the enemies of Rome? <br />",
+    choices: ["Carthage<br />", "Samnium<br />", "Byzantium<br />", "Greece<br />"],
+    answer: "Carthage"
+  },
+  {
+    title: "Who was the first Imperator of Rome? <br />",
+    choices: ["Augustus<br />", "Saint Constantine<br />", "Mark Anthony<br />", "Octavius<br />"],
+    answer: "Carthage"
+  },
+];
+
+var hquest = [
+  {
+    title: "Who was the king of the gods? <br />",
+    choices: ["Zeus<br />", "Kronos<br />", "Pontus<br />", "Oranos<br />"],
+    answer: "Zeus"
+  },
+  {
+    title: "To Whom was Eros married? <br />",
+    choices: ["Psyche<br />", "Helene<br />", "Aethra<br />", "Megara<br />"],
+    answer: "Psyche"
+  },
+  {
+    title: "Who cursed Heracles? <br />",
+    choices: ["Hera<br />", "Hades<br />", "Demeter<br />", "Ares<br />"],
+    answer: "Hera"
+  },
+  {
+    title: "What woman destroyed the life of the hero Jason? <br />",
+    choices: ["Madea<br />", "Medeusa<br />", "Nyx<br />", "Persephonie<br />"],
+    answer: "Madea"
+  },
+];
+
+var mquest = [
+  {
+    title: "How many winds are there in monochromatic magic? <br />",
+    choices: ["Eight<br />", "Ten<br />", "Twenty<br />", "Three<br />"],
+    answer: "Eight"
+  },
+  {
+    title: "How many winds can be cast by one human? <br />",
+    choices: ["Eight<br />", "Ten<br />", "Twenty<br />", "Three<br />"],
+    answer: "Eight"
+  },
+  {
+    title: "Which wind is the wind of beasts? <br />",
+    choices: ["Ghur<br />", "Aqshy<br />", "Shyish<br />", "Chamon<br />"],
+    answer: "Ghur"
+  },
+  {
+    title: "The Wizard Balthazor uses which Aethyr? <br />",
+    choices: ["Ghur</button>", "Aqshy<br />", "Shyish<br />", "Chamon<br />"],
+    answer: "Chamon"
+  },
+];
+
+    function romestart(){
+        for(var i=0; i<rquest.length; i++){
+            $('#text').append(rquest[i].title);
+            var rbutton = document.createElement("button");
+                rbutton.append(rquest[i].choices);
+                $('#text').append(rbutton);}}
+    </script>
+</body>
+</html>
