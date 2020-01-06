@@ -121,9 +121,27 @@ var mquest = [
     function romestart(){
         for(var i=0; i<rquest.length; i++){
             $('#text').append(rquest[i].title);
-            var rbutton = document.createElement("button");
+            var rbutton = $('<div>');
                 rbutton.append(rquest[i].choices);
+                rbutton.addClass('romeclass');
+                rbutton.attr('data-answer', rquest[i].choices);
                 $('#text').append(rbutton);}}
+
+                function hellenicstart(){
+        for(var i=0; i<hquest.length; i++){
+            $('#text').append(hquest[i].title);
+            var rbutton = document.createElement("button");
+                rbutton.append(hquest[i].choices);
+                $('#text').append(rbutton);}}
+
+                function magic(){
+        for(var i=0; i<mquest.length; i++){
+            $('#text').append(mquest[i].title);
+            var rbutton = document.createElement("button");
+                rbutton.append(mquest[i].choices);
+                $('#text').append(rbutton);}}
+
+                
     </script>
 </body>
 </html>
