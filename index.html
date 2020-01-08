@@ -30,19 +30,28 @@
 <div class="row">
     <div class="col-lg-8 col-sm-12 mx-auto">
     <div class="starter">
+      <div id="time"></div>
         <div id="buttons">
-    <button id="roman" onclick="romestart()">Click here to the quiz on Rome!</button>
+    <button id="roman" onclick="romestart(); stopwatch()">Click here to start the quiz on Rome!</button>
     <br />
-    <button id="hellenic" onclick="hellenicstart()">Click here to start the quiz on Hellenism!</button>
+    <button id="hellenic" onclick="hellenicstart(); stopwatch()">Click here to start the quiz on Hellenism!</button>
     <br />
-    <button id="magic" onclick="magic()">Click here to start the quiz on the Winds of Aethyr!</button>
+    <button id="magic" onclick="m(); stopwatch()">Click here to start the quiz on the Winds of Aethyr!</button>
     </div>
     </div>
     </div>
     </div>
     <div class="row">
         <div class="col-lg-8 col-sm-12 mx-auto">
-            <div id="text">
+          <div class = "starter">
+            <div id="text0"></div>
+              <div id = "questions0"></div>
+              <div id="text1"></div>
+              <div id = "questions1"></div>
+              <div id="text2"></div>
+              <div id = "questions2"></div>
+              <div id="text3"></div>
+              <div id = "questions3"></div>
             </div>
             </div></div>
     </div>
@@ -52,23 +61,23 @@
 var rquest = [
   {
     title: "Who was the first king of Rome? <br />",
-    choices: ["Romulous", "Remulous", "Numa", "Julius Cesear", "Tarquin"],
-    answer: "Romulous"
+    choices: ["Romulous<br />", "Remulous<br />", "Numa<br />", "Julius Cesear<br />", "Tarquin<br />"],
+    answer: 0
   },
   {
     title: "Skippio Africanus famously defeated what historical figure? <br />",
     choices: ["Hannibal<br />", "Stilico<br />", "King Leo<br />", "Pompeus Maximus<br />"],
-    answer: "Hannibal"
+    answer: 0
   },
   {
-    title: "What faction what the most famous of the enemies of Rome? <br />",
+    title: "What faction was the most famous of the enemies of Rome? <br />",
     choices: ["Carthage<br />", "Samnium<br />", "Byzantium<br />", "Greece<br />"],
-    answer: "Carthage"
+    answer: 0
   },
   {
     title: "Who was the first Imperator of Rome? <br />",
     choices: ["Augustus<br />", "Saint Constantine<br />", "Mark Anthony<br />", "Octavius<br />"],
-    answer: "Carthage"
+    answer: 0
   },
 ];
 
@@ -118,30 +127,175 @@ var mquest = [
   },
 ];
 
-    function romestart(){
+var score = '';
+
+function romestart(){
         for(var i=0; i<rquest.length; i++){
-            $('#text').append(rquest[i].title);
-            var rbutton = $('<div>');
-                rbutton.append(rquest[i].choices);
-                rbutton.addClass('romeclass');
-                rbutton.attr('data-answer', rquest[i].choices);
-                $('#text').append(rbutton);}}
+          $('#text'+i).append(rquest[i].title)}
+            for(var i=0; i<5; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = rquest[0].choices[i]
+            $('#questions0').append(b);
+            }
+            for(var i=0; i<rquest.length; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = rquest[1].choices[i]
+            $('#questions1').append(b);}
+            for(var i=0; i<rquest.length; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = rquest[2].choices[i]
+            $('#questions2').append(b);}
+            for(var i=0; i<rquest.length; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = rquest[3].choices[i]
+            $('#questions3').append(b);}
+           }
 
-                function hellenicstart(){
-        for(var i=0; i<hquest.length; i++){
-            $('#text').append(hquest[i].title);
-            var rbutton = document.createElement("button");
-                rbutton.append(hquest[i].choices);
-                $('#text').append(rbutton);}}
 
-                function magic(){
-        for(var i=0; i<mquest.length; i++){
-            $('#text').append(mquest[i].title);
-            var rbutton = document.createElement("button");
-                rbutton.append(mquest[i].choices);
-                $('#text').append(rbutton);}}
 
-                
+
+
+function answer(clicked_id) {
+                  if (clicked_id === 'rome0') {
+                    score++;
+                    console.log(score);
+                    wright();
+                    console.log('correct answer! Time left:'+delta);}
+                    else{
+                      wrong();
+                      console.log("Wrong answer! Time left:"+delta);}}
+
+
+
+
+
+
+
+
+function hellenicstart() {
+  for(var i=0; i<hquest.length; i++){
+          $('#text'+i).append(hquest[i].title)}
+            for(var i=0; i<5; i++){
+          var b = document.createElement('button');
+            for(var i=0; i<4; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = hquest[0].choices[i]
+            $('#questions0').append(b);
+            }
+            for(var i=0; i<hquest.length; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = hquest[1].choices[i]
+            $('#questions1').append(b);}
+            for(var i=0; i<hquest.length; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = hquest[2].choices[i]
+            $('#questions2').append(b);}
+            for(var i=0; i<hquest.length; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = hquest[3].choices[i]
+            $('#questions3').append(b);}
+           }}
+
+function m(){{
+  for(var i=0; i<mquest.length; i++){
+          $('#text'+i).append(mquest[i].title)}
+            for(var i=0; i<5; i++){
+          var b = document.createElement('button');
+            for(var i=0; i<4; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = mquest[0].choices[i]
+            $('#questions0').append(b);
+            }
+            for(var i=0; i<mquest.length; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = mquest[1].choices[i]
+            $('#questions1').append(b);}
+            for(var i=0; i<mquest.length; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = mquest[2].choices[i]
+            $('#questions2').append(b);}
+            for(var i=0; i<mquest.length; i++){
+          var b = document.createElement('button');
+b.setAttribute('content', i);
+b.setAttribute('class', 'btn'+i);
+b.setAttribute('id', 'rome'+i);
+b.setAttribute('onclick', "answer(this.id)");
+b.innerHTML = mquest[3].choices[i]
+            $('#questions3').append(b);}
+           }}}
+
+   var time = new Date().getTime();
+
+   console.log(time)
+
+function wrong(){
+  delta-15000;
+  console.log(delta)
+}
+
+function wright(){
+  delta+10000
+  console.log(delta)
+}
+
+  function stopwatch() { 
+    var delta = Date.now();
+    setInterval(function() {
+      var delta = Date.now() - start;
+      output(math.floor(delta/1000));
+      output(new Date().toLocaleTimeString());}, 1000);
+      if (delta < "0") {
+        submission()
+      }
+  }
+
+  function submission(){
+    console.log(score)
+  }
     </script>
 </body>
 </html>
